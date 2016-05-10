@@ -34,9 +34,5 @@ create table matches (
 	unique (player_1, player_2)
 	);
 
-insert into players (player_name) values ('mickey'), ('minnie');
-
-insert into matches (player_1, player_2, winner, loser) values ('1', '2', '2', '1');
-
 select * from players;
 select * from matches;
