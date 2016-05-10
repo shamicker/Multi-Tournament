@@ -1,4 +1,6 @@
 
 from tournament import *
 
-deleteMatches()
+#deleteMatches()
+
+countPlayers()
