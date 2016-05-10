@@ -60,7 +60,6 @@ def registerPlayer(name):
     db.close()
 
 
-
 def playerStandings():
     """Returns a list of the players and their win records, sorted by wins.
 
@@ -83,7 +82,19 @@ def reportMatch(winner, loser):
       winner:  the id number of the player who won
       loser:  the id number of the player who lost
     """
- 
+    db = connect()
+    cursor = db.cursor()
+    query = """
+        insert into matches 
+        values (default, %s, %s, %s, %s);
+    """
+    player_1 = min(winner, loser)
+    player_2 = max(winner, loser)
+    cursor.execute(query, (player_1, player_2, winner, loser))
+    print (player_1, player_2, winner, loser)
+    db.commit()
+    db.close()
+
  
 def swissPairings():
     """Returns a list of pairs of players for the next round of a match.
